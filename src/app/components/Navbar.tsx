@@ -1,10 +1,12 @@
+"use client"
 import Image from "next/image";
 import logo from '@/assets/logo/logo.png'
-import { IoIosArrowDown } from "react-icons/io";
 import { BsTelephonePlus } from "react-icons/bs";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const path = usePathname();
   return (
     <nav className="flex justify-between items-center px-5 bg-slate-900 text-white">
       {/* logo */}
@@ -16,30 +18,31 @@ const Navbar = () => {
         height={100}
         className="border-2"
         />
-        <p className="font-semibold text-2xl -ml-3">WEB INN<span className="text-rose-600">O</span>VATION</p>
+        <p className="font-semibold text-xl -ml-3">WEB INN<span className="text-rose-600">O</span>VATION</p>
       </div>
 
       {/* navigation item */}
       <div>
         <ul className="flex gap-5 justify-center items-center">
-          <Link href='/'><li className="flex items-center">
+          <Link href='/'><li className={`flex items-center ${path == '/' ? 'text-green-500' : ''}`}>
             Home
           </li></Link>
-          <Link href='/about'><li>About</li></Link>
+          <Link href='/about'><li className={`flex items-center ${path == '/about' ? 'text-green-500' : ''}`}>About</li></Link>
           <Link href='/service'>
-          <li className="flex items-center">
+          <li className={`flex items-center ${path == '/service' ? 'text-green-500' : ''}`}>
             Service
           </li>
           </Link>         
          <Link href='/websites'>
-          <li className="flex items-center">
-            Ready Websites
+          <li className={`flex items-center ${path == '/websites' ? 'text-green-500' : ''}`}>
+            Demo Websites
           </li>
          </Link>
-          <li className="flex items-center">
-            Blog
-            <IoIosArrowDown />
+          <Link href='/pricing'>
+          <li className={`flex items-center ${path == '/blog' ? 'text-green-500' : ''}`}>
+            Pricing
           </li>
+          </Link>
         </ul>
       </div>
       {/* quoto button */}

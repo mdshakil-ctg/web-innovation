@@ -36,7 +36,7 @@ export const projects: Project[] = [
   { id: 33, category: "SEO Optimize", title: "Keyword Optimization Plan", image: "/seo2.jpg" },
   { id: 34, category: "SEO Optimize", title: "Technical SEO Audit", image: "/app3.jpg" },
   { id: 35, category: "SEO Optimize", title: "Backlink Building Campaign", image: "/app1.jpg" },
-  { id: 36, category: "SEO Optimize", title: "Content SEO Optimization", image: "/app2" },
+  { id: 36, category: "SEO Optimize", title: "Content SEO Optimization", image: "/app2.jpg" },
 
   // --- Web Development (10 total, already done) ---
   { id: 5, category: "Web Development", title: "Responsive Design", image: "/web1.jpg" },
@@ -49,7 +49,7 @@ export const projects: Project[] = [
   { id: 13, category: "Web Development", title: "Online Booking System", image: "/app2.jpg" },
   { id: 14, category: "Web Development", title: "Social Media Integration", image: "/app1.jpg" },
   { id: 15, category: "Web Development", title: "Multi-language Website", image: "/app6.jpg" },
-  { id: 16, category: "Web Development", title: "Real Estate Listings", image: "/app3" },
+  { id: 16, category: "Web Development", title: "Real Estate Listings", image: "/app3.jpg" },
 ];
 
 export default function Projects() {

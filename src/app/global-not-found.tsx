@@ -2,7 +2,6 @@ import { Poppins } from 'next/font/google';
 import Link from "next/link";
 import Image from 'next/image';
 import { FaHome } from 'react-icons/fa';
-import Navbar from './components/Navbar';
 import './globals.css';
 
 const poppins = Poppins({
@@ -14,8 +13,6 @@ export default function NotFound() {
   return (
     <html lang="en">
       <body className={`${poppins.className} antialiased bg-black`}>
-        <Navbar />
-
         <div className="relative min-h-screen bg-black text-white flex items-center justify-center px-6 overflow-hidden">
           {/* Background Glow Effect */}
           <div className="absolute -top-30 -left-40 w-[400px] h-[400px] rounded-full bg-emerald-500/50 blur-[120px] pointer-events-none"></div>

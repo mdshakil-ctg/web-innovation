@@ -115,16 +115,16 @@ export default function Testimonial() {
       >
         {testimonials.map((data) => (
           <SwiperSlide key={data.id}>
-            <div className="bg-slate-700 h-[250px] text-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center space-y-4">
+            <div className="bg-slate-900 h-[250px] text-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center space-y-4">
               <FaQuoteLeft className="text-4xl md:text-5xl text-green-300" />
               <Rating
-                style={{ maxWidth: 200 }}
+                style={{ maxWidth: 100 }}
                 value={data.rating}
                 readOnly
                 itemStyles={myStyles}
               />
               <p className="text-sm ">{data.comment}</p>
-              <h5 className="font-semibold text-rose-300">{data.name}</h5>
+              <h5 className="font-semibold text-yellow-300">{data.name}</h5>
             </div>
           </SwiperSlide>
         ))}

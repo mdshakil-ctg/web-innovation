@@ -1,6 +1,6 @@
-/* @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,900'); */
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,900');
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 :root {
   --text-color: rgb(11, 224, 22);
   --shadow-color: hsla(210, 40%, 52%, .6);
@@ -15,7 +15,7 @@
   border: none;
   background: none;
   cursor: pointer;
-  font-family: "Poppins";
+  font-family: "Soure Code Pro";
   font-weight: 400;
   text-transform: uppercase;
   font-size: 18px;  
@@ -44,7 +44,7 @@
 .custom-button::after{
   font-weight: 200;
   top: -34px;
-  left: -21px;
+  left: -22px;
 } 
 
 .right, .left {
@@ -60,7 +60,7 @@
   right: 66%;
 }
 .right::after {
-  top: -30px;
+  top: -33px;
   left: calc(-66% - 20px);
   
   background-color: var(--hover-color);
@@ -106,22 +106,4 @@
   to {
     transform: translate(0, -66.666%);
   }
-}
-
-/* Small Button Style */
-.custom-button.small {
-  padding: 12px 41px;
-  font-size: 17px;
-  border-radius: 2px;
-}
-
-.custom-button.small::after {
-  padding: 23px 20px;
-  top: -11px;
-  left: 21px;
-}
-
-.custom-button.small .right::after {
-  top: -22%;
-  left: calc(-73% + 10px);
 }

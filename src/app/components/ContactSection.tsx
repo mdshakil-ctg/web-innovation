@@ -27,7 +27,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-16 max-w-7xl mx-auto">
+    <section id="contactme" className="bg-black text-white py-16 px-6 md:px-16 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-12">
         {/* Left */}
         <div>
@@ -136,14 +136,9 @@ export default function ContactSection() {
               placeholder="Message"
               className="bg-transparent border border-gray-600 p-3 rounded text-sm w-full focus:outline-none focus:border-green-400"
             />
-
-            {/* <button
-              type="submit"
-              className="w-full bg-green-500 hover:bg-green-400 text-black font-semibold py-3 rounded transition"
-            >
-              Submit
-            </button> */}
+            <div className="flex justify-center">
             <Button text="Submit"/>
+            </div>
           </form>
         </div>
       </div>

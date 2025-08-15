@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import banner from '@/assets/banner.png'
+import Button from './shared/Button'
+import Link from 'next/link'
 const Banner = () => {
   return (
     <section className="bg-[#0e0e0e] text-white px-6 py-16">
@@ -20,13 +22,13 @@ const Banner = () => {
             Donec nec duomoi luctus, pellentesque lacus sed, mollis going leo.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <button className="bg-green-500 text-black px-6 py-3 font-semibold rounded-md hover:bg-green-400 transition">
-              Free Consultancy
-            </button>
-            <button className="flex items-center gap-2 bg-transparent text-green-400 font-semibold px-6 py-3 rounded-md border border-green-400 hover:bg-green-400 hover:text-black transition">
+          <div className="mt-8 flex flex-wrap gap-6">
+            <Link href='#contactme'><div><Button text='Free Consult'/></div></Link>
+           <Link href='/websites'>
+            <button className="flex items-center gap-2 bg-transparent text-green-400 font-semibold px-5 py-2 rounded-md border border-green-700 hover:bg-green-500 hover:text-black tracking-wider">
               View All Work <span className="text-xl">↗</span>
             </button>
+           </Link>
           </div>
         </div>
 
