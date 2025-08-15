@@ -8,17 +8,17 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const path = usePathname();
   return (
-    <nav className="flex justify-between items-center px-5 bg-slate-900 text-white">
+    <nav className="fixed top-0 w-full z-10 flex justify-between items-center px-12 py-2 bg-slate-900 text-white">
       {/* logo */}
       <div className="flex items-center">
         <Image
         src={logo}
         alt="logo"
-        width={100}
-        height={100}
+        width={80}
+        height={80}
         className="border-2"
         />
-        <p className="font-semibold text-xl -ml-3">WEB INN<span className="text-rose-600">O</span>VATION</p>
+        <p className="font-semibold text-green-500 text-xl">WEB INN<span className="text-rose-600">O</span>VATION</p>
       </div>
 
       {/* navigation item */}
@@ -39,7 +39,7 @@ const Navbar = () => {
           </li>
          </Link>
           <Link href='/pricing'>
-          <li className={`flex items-center ${path == '/blog' ? 'text-green-500' : ''}`}>
+          <li className={`flex items-center ${path == '/pricing' ? 'text-green-500' : ''}`}>
             Pricing
           </li>
           </Link>

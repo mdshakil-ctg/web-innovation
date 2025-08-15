@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import BannerTitle from "../components/shared/BaneerTitle";
 
 export default function PricingPlans() {
   const [isYearly, setIsYearly] = useState(false);
@@ -45,6 +46,8 @@ export default function PricingPlans() {
   ];
 
   return (
+    <>
+    <BannerTitle title="Pricing"/>
     <section className="bg-black text-white py-16">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-10">Choose Your Plan</h2>
@@ -78,26 +81,26 @@ export default function PricingPlans() {
             key={index}
             className="bg-gradient-to-b from-gray-900 to-black rounded-xl p-6 border border-gray-800 hover:border-green-500 transition"
           >
-            <h3 className="text-green-400 text-lg font-semibold text-center">
+            <h3 className="text-green-500 text-lg font-semibold text-center">
               {plan.name}
             </h3>
             <div className="text-center mt-4">
-              <span className="text-4xl font-bold">
+              <span className="text-5xl font-bold">
                 ${isYearly ? plan.yearly : plan.monthly}
               </span>
-              <span className="text-green-400 ml-1">
+              <span className="text-green-500 ml-1">
                 /{isYearly ? "Yearly" : "Monthly"}
               </span>
             </div>
 
-            <ul className="mt-6 space-y-3">
+            <ul className="my-12 space-y-3">
               {plan.features.map((feature, i) => (
                 <li
                   key={i}
                   className="flex justify-between items-center border-b border-gray-800 pb-2"
                 >
                   <span>{feature}</span>
-                  <span className="text-green-400 font-bold">✔</span>
+                  <span className="text-green-500 font-bold">✔</span>
                 </li>
               ))}
             </ul>
@@ -113,5 +116,7 @@ export default function PricingPlans() {
         ))}
       </div>
     </section>
+    
+    </>
   );
 }

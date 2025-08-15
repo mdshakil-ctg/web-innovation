@@ -6,8 +6,11 @@ import Footer from "./components/Footer";
 import LoadingProvider from "./providers/LoadingProvider";
 
 export const metadata: Metadata = {
-  title: "Web Innovation",
+  title: "WEB INNOVATION",
   description: "Web Development Services",
+  icons: {
+    icon: "/logo.png",
+  }
 };
 
 const poppins = Poppins({
@@ -22,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased bg-black`}>
+      <body className={`${poppins.className} antialiased bg-black pt-24`}>
         <LoadingProvider>
         <Navbar />
         <main>{children}</main>
