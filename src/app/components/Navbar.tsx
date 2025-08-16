@@ -54,9 +54,11 @@ const Navbar = () => {
           <p >+880-1815-149399</p>
           </div>
         </div>
-        <button className="text-green-400 border-1 rounded-md border-green-400 px-5 py-2 font-semibold">
+        <Link href='#contactme'>
+        <button className="text-green-400 border-1 rounded-md border-green-400 px-5 py-2 font-semibold cursor-pointer">
           Get A Quote
         </button>
+        </Link>
       </div>
     </nav>
   );

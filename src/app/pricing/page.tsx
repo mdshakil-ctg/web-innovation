@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import BannerTitle from "../components/shared/BaneerTitle";
+import Button from "../components/shared/Button";
 
 export default function PricingPlans() {
   const [isYearly, setIsYearly] = useState(false);
@@ -107,9 +108,7 @@ export default function PricingPlans() {
 
             <div className="mt-6 text-center">
               <Link href="/checkout">
-                <button className={`bg-green-500 text-black px-6 py-2 rounded-md font-semibold hover:bg-green-400 transition ${plan.name === "Professional Plan" && 'bg-slate-900 text-green-500'}`}>
-                  Pay Now
-                </button>
+                <Button text="Pay Now"/>
               </Link>
             </div>
           </div>

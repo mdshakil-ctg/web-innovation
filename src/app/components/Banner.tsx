@@ -25,7 +25,7 @@ const Banner = () => {
           <div className="mt-8 flex flex-wrap gap-6">
             <Link href='#contactme'><div><Button text='Free Consult'/></div></Link>
            <Link href='/websites'>
-            <button className="flex items-center gap-2 bg-transparent text-green-400 font-semibold px-5 py-2 rounded-md border border-green-700 hover:bg-green-500 hover:text-black tracking-wider">
+            <button className="flex items-center gap-2 bg-transparent text-green-500 font-semibold px-5 py-2 rounded-md border border-green-700 hover:bg-green-500 hover:text-black tracking-wider cursor-pointer hover:transition-all duration-300">
               View All Work <span className="text-xl">↗</span>
             </button>
            </Link>

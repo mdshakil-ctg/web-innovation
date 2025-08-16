@@ -24,7 +24,7 @@
   border-radius: 4px; 
   z-index: 0;  
   overflow: hidden;
-  letter-spacing: 8px;   
+  letter-spacing: 5px;   
 }
 
 .custom-button:focus {

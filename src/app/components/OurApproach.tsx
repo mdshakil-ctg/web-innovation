@@ -78,7 +78,7 @@ export default function OurApproach() {
 
             {/* Badge */}
             <div className="w-40 h-40 rounded-full bg-green-500 flex flex-col items-center justify-center text-black font-bold text-center relative">
-              <span className="text-4xl">10</span>
+              <span className="text-4xl">5</span>
               <span className="text-lg">Years</span>
               {/* Optional surrounding text effect */}
               <div className="absolute inset-0 flex items-center justify-center text-xs text-green-900 opacity-50 rotate-[20deg]">

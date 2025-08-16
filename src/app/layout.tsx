@@ -6,8 +6,8 @@ import Footer from "./components/Footer";
 import LoadingProvider from "./providers/LoadingProvider";
 
 export const metadata: Metadata = {
-  title: "WEB INNOVATION",
-  description: "Web Development Services",
+  title: "Web Innovation",
+  description: "Discover our web innovation app that helps businesses transform ideas into digital solutions with cutting-edge technology and user-friendly design.",
   icons: {
     icon: "/logo.png",
   }
