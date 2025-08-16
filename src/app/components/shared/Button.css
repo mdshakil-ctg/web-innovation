@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,900');
+/* @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,400,900'); */
 
 
 :root {
@@ -15,7 +15,7 @@
   border: none;
   background: none;
   cursor: pointer;
-  font-family: "Soure Code Pro";
+  /* font-family: "Soure Code Pro"; */
   font-weight: 400;
   text-transform: uppercase;
   font-size: 18px;  

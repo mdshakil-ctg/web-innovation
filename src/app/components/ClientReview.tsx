@@ -102,7 +102,7 @@ export default function ClientReview() {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="mb-12 text-center">
-          <h2 className="text-4xl font-bold text-white mb-5">Happy Customers</h2>
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-5">Happy Customers</h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
             Services are professional offerings provided by businesses to meet
             specific needs or solve problems for their customers.
@@ -114,11 +114,12 @@ export default function ClientReview() {
           autoplay={{ delay: 4000, disableOnInteraction: false }}
           loop={true}
           speed={1000}
-          navigation={true}
+          navigation={false}
           modules={[Navigation, Autoplay]}
           spaceBetween={30}
           breakpoints={{
             0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
             1024: { slidesPerView: 3 },
           }}
         >
@@ -156,7 +157,7 @@ export default function ClientReview() {
                 </div>
 
                 {/* Avatar circle outside card */}
-                <div className="absolute bottom-8 left-2/3 -translate-x-1/2 w-16 h-16 rounded-full overflow-hidden border-4 border-black shadow-lg">
+                <div className="absolute bottom-3 right-5  w-16 h-16 rounded-full overflow-hidden border-4 border-black shadow-lg">
                   <Image
                     src={t.avatar}
                     alt={t.name}
@@ -169,6 +170,7 @@ export default function ClientReview() {
             </SwiperSlide>
           ))}
         </Swiper>
+        
       </div>
     </section>
   );

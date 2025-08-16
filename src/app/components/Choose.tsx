@@ -5,16 +5,16 @@ import { FiArrowRight } from "react-icons/fi";
 const Choose = () => {
   return (
     <div className="bg-black text-white">
-      <div className="flex justify-center items-center gap-10 px-10">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-10 px-10">
        
 
         <div>
           <p className="text-green-500 mb-2">--Why Choose Us</p>
-          <h2 className="font-bold text-5xl">
+          <h2 className="font-bold text-2xl md:text-5xl">
             Unlock The Potential <br /> Of Your Business.
           </h2>
         </div>
-         <div className="w-[500px]">
+         <div className="md:w-[500px]">
           <Image alt="working" src={choose} width={500} height={300} className="w-full" />
         </div>
       </div>
@@ -22,7 +22,7 @@ const Choose = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         
         {/* Left Card */}
-        <div className="bg-[#111] p-16 relative rounded-lg border border-gray-800 overflow-hidden h-[400px]">
+        <div className="bg-[#111] p-6 md:p-10 lg:p-16 relative rounded-lg border border-gray-800 overflow-hidden h-[400px]">
           {/* Top right decorative box */}
           <div className="absolute top-0 right-0 w-20 h-20 bg-green-900 opacity-40"></div>
 

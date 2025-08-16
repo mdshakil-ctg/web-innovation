@@ -51,12 +51,12 @@ export default function PricingPlans() {
     <BannerTitle title="Pricing"/>
     <section className="bg-black text-white py-16">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-10">Choose Your Plan</h2>
+        <h2 className="text-xl md:text-4xl font-bold mb-10">Choose Your Plan</h2>
 
         {/* Billing Toggle */}
-        <div className="mt-4 flex justify-center gap-2 bg-gray-900 rounded-full px-2 py-1 w-fit mx-auto">
+        <div className="mt-4 flex justify-center gap-2 bg-gray-900 rounded-full text-sm md:text-md md:px-2 md:py-1 w-fit mx-auto">
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition ${
+            className={`px-2 py-1 md:px-4 md:py-2 rounded-full font-semibold transition ${
               !isYearly ? "bg-green-500 text-black" : "hover:bg-gray-800"
             }`}
             onClick={() => setIsYearly(false)}
@@ -64,13 +64,13 @@ export default function PricingPlans() {
             Billed Monthly
           </button>
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition flex items-center gap-1 ${
+            className={`px-2 py-1 md:px-4 md:py-2 rounded-full font-semibold transition flex items-center gap-1 ${
               isYearly ? "bg-green-500 text-black" : "hover:bg-gray-800"
             }`}
             onClick={() => setIsYearly(true)}
           >
             Billed Yearly{" "}
-            <span className=" text-[8px] bg-green-500 px-3 py-1 rounded-full font-normal">20% OFF</span>
+            <span className=" text-[8px] bg-green-500 px-1 md:px-3 py-1 rounded-full font-normal">30% OFF</span>
           </button>
         </div>
       </div>

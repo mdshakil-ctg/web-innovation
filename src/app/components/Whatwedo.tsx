@@ -3,7 +3,7 @@ import whatimage from "@/assets/what-we-do-img.jpg"
 
 export default function WhatWeDo() {
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-16 max-w-7xl mx-auto">
+    <section className="bg-black text-white pt-16 px-6 md:px-16 max-w-7xl mx-auto">
       {/* Section Heading */}
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
         What We Do

@@ -9,7 +9,7 @@ export default function OurApproach() {
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="mb-10">
-          <h2 className="text-4xl font-bold mb-2">Our Approach</h2>
+          <h2 className="text-2xl md:text-4xl font-bold mb-2">Our Approach</h2>
           <p className="text-gray-400 max-w-3xl">
             Services are professional offerings provided by businesses to meet
             specific needs or solve problems for their customers. Services can
@@ -32,7 +32,7 @@ export default function OurApproach() {
 
           {/* Middle Text */}
           <div>
-            <h3 className="text-4xl font-extrabold mb-4">
+            <h3 className="text-2xl md:text-4xl font-extrabold mb-4">
               Unlock The Potential Of Your Business.
             </h3>
             <p className="text-gray-400 mb-6">

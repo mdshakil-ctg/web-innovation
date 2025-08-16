@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Button from "./shared/Button";
+import Link from "next/link";
 
 interface AccordionItem {
   title: string;
@@ -27,27 +28,27 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contactme" className="bg-black text-white py-16 px-6 md:px-16 max-w-7xl mx-auto">
+    <section id="contactme" className="bg-black text-white pt-16 px-6 md:px-16 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-12">
         {/* Left */}
         <div>
-          <h2 className="text-4xl font-bold mb-4">
-            <span className="opacity-10 block text-6xl -mb-12">CONTACT</span>
+          <h2 className="text-3xl font-bold mb-4">
+            <span className="opacity-10 block text-5xl md:text-6xl -mb-10">CONTACT</span>
             Contact
           </h2>
           <p className="text-gray-400 mb-6">
-            We’re happy to answer any questions you may have and help you
+            We are happy to answer any questions you may have and help you
             determine which of our services best fit your needs.
           </p>
 
           {/* Call button */}
-          <div className="mb-8">
-            <a
-              href="tel:+880566111985"
-              className="inline-block border border-green-500 text-green-400 font-semibold px-6 py-3 rounded hover:bg-green-500 hover:text-black transition"
+          <div className="mb-8 flex justify-start">
+            <Link
+              href="tel:+8801815149399"
+              className="inline-block border border-green-500 text-green-400 font-semibold px-3 md:px-6 py-3 rounded hover:bg-green-500 hover:text-black transition"
             >
               Call Us Now: +880 1815 149399
-            </a>
+            </Link>
           </div>
 
           {/* Accordion */}
@@ -58,7 +59,7 @@ export default function ContactSection() {
                 <div key={step.title} className="py-3">
                   <button
                     onClick={() => toggle(i)}
-                    className="w-full flex items-center justify-between text-left"
+                    className="w-full flex items-center justify-between pr-5 text-left"
                     aria-expanded={isOpen}
                     aria-controls={`panel-${i}`}
                   >
@@ -82,7 +83,7 @@ export default function ContactSection() {
                     }`}
                   >
                     <div className="overflow-hidden">
-                      <p className="text-gray-400 mt-2 text-sm">
+                      <p className="text-gray-400 mt-2 text-xs">
                         {step.content}
                       </p>
                     </div>

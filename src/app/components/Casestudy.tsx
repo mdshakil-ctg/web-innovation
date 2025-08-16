@@ -3,6 +3,7 @@ import case1 from "@/assets/Case-Study-1.jpg";
 import case2 from "@/assets/Case-Study-2.jpg";
 import case3 from "@/assets/Case-Study-3.jpg";
 import case4 from "@/assets/Case-Study-4.jpg";
+import Button from "./shared/Button";
 
 const caseStudies = [
   {
@@ -41,10 +42,10 @@ const caseStudies = [
 
 export default function CaseStudy() {
   return (
-    <section className="bg-[#0a0a0d] text-white py-16">
+    <section className="bg-[#0a0a0d] text-white pt-16">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-center text-5xl font-bold mb-16">
-          <span className="opacity-10 block text-9xl -mb-12 text-slate-600">Case Study</span>
+        <h2 className="text-center text-3xl md:text-5xl font-bold mb-16">
+          <span className="opacity-20 block text-5xl md:text-7xl lg:text-9xl -mb-10 md:-mb-12 text-slate-600">Case Study</span>
           Case Study</h2>
 
         <div className="grid md:grid-cols-2 gap-10">
@@ -105,12 +106,7 @@ export default function CaseStudy() {
 
         {/* View all button */}
         <div className="text-center mt-16">
-          <a
-            href="#"
-            className="bg-green-400 text-black font-semibold px-6 py-3 rounded hover:bg-green-500 transition"
-          >
-            View All Case
-          </a>
+          <Button text="View All"/>
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@ export default function ServicesSection() {
   return (
     <section className="bg-gray-900 text-white py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-center text-5xl font-bold mb-12">
+        <h2 className="text-center text-3xl md:text-5xl font-bold mb-12">
           <span className="text-white">Our</span>{" "}
           <span className="text-white">Services</span>
         </h2>

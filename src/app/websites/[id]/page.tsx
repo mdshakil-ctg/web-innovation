@@ -52,7 +52,7 @@ export default function ProjectDetails() {
   return (
     <>
         <BannerTitle title={project?.title}/>
-    <div className="max-w-7xl mx-auto px-4 py-12">
+    <div className="max-w-7xl mx-auto px-4 pt-12">
       {/* Image layout */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Main large image */}
@@ -218,7 +218,7 @@ export default function ProjectDetails() {
         {/* Navigation Links */}
         <div className="flex justify-between items-center">
           {/* Previous */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col md:flex-row items-start gap-3">
             <Image
               src="/portfolio-dt-02.jpg" // Replace with actual image path
               alt="Previous Project"
@@ -237,7 +237,7 @@ export default function ProjectDetails() {
           </div>
 
           {/* Next */}
-          <div className="flex items-center gap-3 text-right">
+          <div className="flex flex-col-reverse md:flex-row items-end gap-3 text-right">
             <div>
               <span className="text-emerald-500 text-xs font-semibold block">
                 NEXT

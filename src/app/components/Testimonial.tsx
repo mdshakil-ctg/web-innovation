@@ -92,8 +92,8 @@ export default function Testimonial() {
   return (
     <div className="my-10 md:mx-28">
       <div>
-        <h3 className="text-center text-5xl font-bold mb-16">
-          <span className="opacity-10 block text-9xl -mb-12 text-slate-400">Approciations</span>
+        <h3 className="text-center text-3xl md:text-5xl font-bold mb-16">
+          <span className="opacity-20 block text-5xl md:text-7xl lg:text-9xl -mb-10 md:-mb-12 text-slate-400">Approciations</span>
           Approciations</h3>
       </div>
       <Swiper

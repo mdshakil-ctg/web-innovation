@@ -5,14 +5,14 @@ import { HiOutlineMail, HiOutlineLocationMarker, HiOutlinePhone } from "react-ic
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0b0d0f] text-white pt-12">
+    <footer className="bg-slate-900 text-white pt-4 md:pt-12">
       <div className="container mx-auto px-6 md:px-12">
         {/* Top Bar with Logo + Call Any Time */}
-        <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-800 pb-6 mb-8">
+        <div className="flex flex-col items-start md:flex-row md:justify-between md:items-center border-b border-gray-800 pb-6 md:mb-8">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ">
             <span className="text-green-500 text-2xl font-bold">●</span>
-            <h2 className="text-2xl font-bold">Web Inn<span className="text-rose-500">o</span>vation</h2>
+            <h2 className="md:text-2xl font-bold">Web Inn<span className="text-rose-500">o</span>vation</h2>
           </div>
 
           {/* Call Any Time */}
@@ -22,7 +22,7 @@ export default function Footer() {
             </div>
             <div>
               <p className="text-xs text-gray-400">Call Any Time</p>
-              <p className="text-green-500 font-semibold">+880-1815-149399</p>
+              <p className="text-green-500 font-semibold text-xs md:text-base">+880-1815-149399</p>
             </div>
           </div>
         </div>
