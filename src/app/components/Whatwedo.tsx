@@ -30,7 +30,7 @@ export default function WhatWeDo() {
               </svg>
             ),
             title: "Research & Discovery",
-            desc: "Web development is the process often than operedol creating dare eros augue, ultricies sedatoni quamot authol websites and web.",
+            desc: "We begin every project with in-depth research to understand your business, audience, and goals. This discovery phase ensures we create solutions that truly align with your vision and deliver measurable results.",
           },
           {
             icon: (
@@ -50,7 +50,7 @@ export default function WhatWeDo() {
               </svg>
             ),
             title: "Industry Expertise",
-            desc: "Web development is the process often than operedol creating dare eros augue, ultricies sedatoni quamot authol websites and web.",
+            desc: "Our team brings years of experience across multiple industries. We combine technical skills with market knowledge to deliver tailored web solutions that help businesses stay ahead of the competition.",
           },
           {
             icon: (
@@ -70,7 +70,7 @@ export default function WhatWeDo() {
               </svg>
             ),
             title: "Quality Assurance",
-            desc: "Web development is the process often than operedol creating dare eros augue, ultricies sedatoni quamot authol websites and web.",
+            desc: "Every project goes through rigorous testing to guarantee performance, security, and scalability. Our quality assurance process ensures that your website or application is reliable and ready for growth.",
           },
         ].map((item, i) => (
           <div key={i} className="space-y-4">
@@ -100,9 +100,7 @@ export default function WhatWeDo() {
             Unlock The Potential Of Your Creative Business.
           </h3>
           <p className="text-gray-400 mb-6">
-            Morbi interdum pellentesque nunc, luctus pretium nulla luctus ac.
-            Aliquam cursus nunc aliquam. Nam semper posuere risus, a gravida
-            sapien tincidunt ac. Nam ac lacinia arcu. Aliquam erat volutpat.
+           We help businesses transform ideas into reality. With strategic planning, innovative solutions, and expert guidance, your brand can reach new heights. Our approach combines creativity and efficiency to drive growth and long-term success.
           </p>
 
           {/* Bullet Points */}

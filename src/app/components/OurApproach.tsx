@@ -49,7 +49,7 @@ export default function OurApproach() {
                 <div className="w-4 h-4 rounded-full bg-green-500 mb-2"></div>
                 <h4 className="font-bold text-sm mb-1">Customized Solutions</h4>
                 <p className="text-gray-400 text-sm text-center">
-                  Services are professional offerings provided.
+                  Tailored services to fit your business needs perfectly.
                 </p>
               </div>
 
@@ -57,7 +57,7 @@ export default function OurApproach() {
                 <div className="w-4 h-4 rounded-full bg-green-500 mb-2"></div>
                 <h4 className="font-bold text-sm mb-1">Quality Reliability</h4>
                 <p className="text-gray-400 text-sm text-center">
-                  Services are professional offerings provided.
+                  Dependable results delivered with excellence.
                 </p>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function OurApproach() {
             </div>
 
             {/* Badge */}
-            <div className="w-40 h-40 rounded-full bg-green-500 flex flex-col items-center justify-center text-black font-bold text-center relative">
+            <div className="w-40 h-40 rounded-full bg-green-400 flex flex-col items-center justify-center text-black font-bold text-center relative">
               <span className="text-4xl">5</span>
               <span className="text-lg">Years</span>
               {/* Optional surrounding text effect */}

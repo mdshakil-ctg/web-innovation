@@ -8,33 +8,33 @@ import Button from "./shared/Button";
 const caseStudies = [
   {
     category: "Cloud Hosting",
-    title: "Morbi Erat Ut, Hendrerit Vel Tortor",
+    title: "Reliable & Scalable",
     description:
-      "Interdum et malesuada fames ac ante ipsum primis in faucibus...",
+      "Our cloud hosting solutions provide secure, fast, and scalable infrastructure to keep your business online 24/7. Enjoy flexibility, high performance, and cost efficiency for all your web applications.",
     image: case1, // replace with your image
     link: "#",
   },
   {
     category: "Data Analytics",
-    title: "Nunc Sit Amet Finibus Felis, Ut Egestas Lacus.",
+    title: "Smarter Decisions with Data",
     description:
-      "Interdum et malesuada fames ac ante ipsum primis in faucibus...",
+      "Unlock the power of data with our advanced analytics solutions. We help you turn raw data into actionable insights, empowering smarter decisions and sustainable business growth.",
     image: case2,
     link: "#",
   },
   {
     category: "Digital Marketing",
-    title: "Accumsan Purus Vel, Pellentesque Risus.",
+    title: "Grow Your Brand Online",
     description:
-      "Interdum et malesuada fames ac ante ipsum primis in faucibus...",
+      "From SEO to social media campaigns, we craft digital strategies that connect your brand with the right audience. Our solutions are designed to increase visibility, engagement, and conversions.",
     image: case3,
     link: "#",
   },
   {
-    category: "Cloud Hosting",
-    title: "Vivamus Vehicula Noted By Thi Ut, Hendrerit Vel",
+    category: "Seo Optimization",
+    title: "Future-Ready Infrastructure",
     description:
-      "Interdum et malesuada fames ac ante ipsum primis in faucibus...",
+      "Our SEO strategies help your business rank higher on search engines, driving organic traffic and building long-term credibility.",
     image: case4,
     link: "#",
   },

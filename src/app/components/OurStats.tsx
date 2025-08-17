@@ -11,19 +11,19 @@ export default function OurStats() {
     },
     {
       icon: <FaUsers className="text-green-400 text-4xl mb-3" />,
-      value: "1.5K",
+      value: "150+",
       label: "Customers",
       desc: "Satisfied Customer",
     },
     {
       icon: <FaCogs className="text-green-400 text-4xl mb-3" />,
-      value: "800",
+      value: "400+",
       label: "Projects",
       desc: "We Have Completed",
     },
     {
       icon: <FaAward className="text-green-400 text-4xl mb-3" />,
-      value: "15",
+      value: "5",
       label: "Awards",
       desc: "Achievement For Service",
     },
@@ -36,8 +36,7 @@ export default function OurStats() {
         <div className="lg:col-span-1">
           <h2 className="text-2xl md:text-4xl font-bold mb-3">Our States</h2>
           <p className="text-gray-500">
-            Maecenas euismod viverra purus, volutpat posuere mauris tristique
-            quisokaft.
+            We provide innovative solutions that drive growth and deliver measurable results for your business.
           </p>
         </div>
 

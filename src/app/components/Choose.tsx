@@ -31,15 +31,13 @@ const Choose = () => {
             <span className="text-green-500 mr-1">●</span> Web Inn<span className="text-rose-500">o</span>vation
           </h2>
           <h3 className="mt-6 text-lg font-semibold">
-            UBest Creative IT Agency And Solutions{" "}
+            Best Creative IT Agency And Solutions{" "}
             <span className="text-green-500">Since 2020.</span>
           </h3>
 
           {/* Description */}
           <p className="mt-4 text-gray-300 text-sm leading-relaxed">
-            Morbi interdum pellentesque nunc, luctus pretium nullagoneq luctus
-            at. Aliquam cursus nunc arcu, condimentum efficitur tellus iaculis
-            faucibus Quisque gravida.
+           We believe in creating strategies that adapt to your business needs.With the right balance of creativity and performance, we help you unlock new opportunities and build lasting success.
           </p>
 
           {/* Bottom left decoration */}
@@ -57,14 +55,14 @@ const Choose = () => {
         <div className="flex flex-col gap-8">
           {/* Stat Item */}
           {[
-            { title: "Strategy" },
-            { title: "Audience" },
-            { title: "Keyword" },
+            { title: "Strategy", description: "We focus on building clear strategies that align with your goals. Every step is designed to maximize growth, efficiency, and long-term success.",perRate: "99" },
+            { title: "Audience", description: "Understanding your audience is at the heart of every business. We help you connect, engage, and build trust with the right people.",perRate: "85" },
+            { title: "Keyword", description: "Smart keyword planning ensures your brand gets discovered. We create optimized solutions that boost visibility and bring measurable results.", perRate: "90" },
           ].map((item, idx) => (
             <div key={idx} className="flex items-center gap-6">
               {/* Circle Percentage */}
-              <div className="p-5 rounded-full border-2 border-gray-700 flex items-center justify-center text-xl font-bold">
-                0%
+              <div className="px-5 py-6 text-green-500 rounded-full border-2 border-gray-700 flex items-center justify-center text-sm font-bold">
+                {item.perRate}%
               </div>
               {/* Text */}
               <div>
@@ -72,7 +70,7 @@ const Choose = () => {
                   {item.title}
                 </h4>
                 <p className="text-gray-400 text-sm leading-snug ">
-                  Morbi interdum pellentesque nunc, luctus pretium nullagoneq luctus at. Aliquam one cursus nunc arcu
+                 {item.description}
                 </p>
               </div>
             </div>

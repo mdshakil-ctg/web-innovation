@@ -13,8 +13,8 @@ const AboutPage = () => {
         <OurApproach/>
         <Choose/>
         <OurStats/>
-        <ClientReview/>
         <ContactCircle/>
+        <ClientReview/>
     </section>
   )
 }

@@ -6,15 +6,15 @@ const services = [
     id: "01",
     title: "Web Development",
     description:
-      "Web development is the process of creating websites and web applications for the internet or intranet.",
+      "Web development is the process of creating websites and web applications for the internet or mobile application.",
     icon: <FaCode className="text-green-400 text-4xl" />,
     link: "#",
   },
   {
     id: "02",
-    title: "Cloud Solutions",
+    title: "Digital Marketing",
     description:
-      "Cloud Solutions is the process of creating websites and web applications for the web, internet or intranet.",
+      "Digital Marketing is the process of promoting products, services, or brands through online channels such as search engines, social media, email, and websites.",
     icon: <FaCloud className="text-green-400 text-4xl" />,
     link: "#",
   },

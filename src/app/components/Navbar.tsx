@@ -37,7 +37,7 @@ const Navbar = () => {
           </Link>         
          <Link href='/websites'>
           <li className={`flex items-center ${path == '/websites' ? 'text-green-500' : ''}`}>
-            Projects
+            Portfolio
           </li>
          </Link>
           <Link href='/pricing'>
@@ -61,7 +61,7 @@ const Navbar = () => {
           </Link>         
          <Link href='/websites'>
           <li className={`flex items-center ${path == '/websites' ? 'text-green-500' : ''}`}>
-            Projects
+            Portfolio
           </li>
          </Link>
           <Link href='/pricing'>
