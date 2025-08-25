@@ -98,7 +98,7 @@ const testimonials = [
 
 export default function ClientReview() {
   return (
-    <section className="bg-black py-16 px-4">
+    <section className="py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="mb-12 text-center">

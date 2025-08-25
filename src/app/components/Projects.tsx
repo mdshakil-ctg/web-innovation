@@ -5,15 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
-
-
 interface Project {
   id: number;
   category: string;
   title: string;
   image: string;
   link: string;
-};
+}
 
 const categories = [
   "All",
@@ -101,7 +99,6 @@ export const projects: Project[] = [
   { id: 50, category: "Fashion & Lifestyle", title: "Trend & Style Magazine", image: "/fashion5.png", link: "https://p.w3layouts.com/demos_new/template_demo/31-05-2019/fashion_mantra-demo_Free/1818597229/web/index.html" },
 ];
 
-
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
 
@@ -111,18 +108,18 @@ export default function Projects() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="bg-black text-white py-16 px-4">
+    <section className="text-white py-12 md:py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Tabs */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full cursor-pointer transition-colors ${
+              className={`px-4 md:px-5 py-2 text-xs md:text-sm lg:text-base rounded-full cursor-pointer transition-colors ${
                 activeCategory === cat
                   ? "bg-green-500 text-black font-bold"
-                  : "bg-gray-800 hover:bg-green-500 hover:text-black"
+                  : "bg-gray-900 hover:bg-green-500 hover:text-black"
               }`}
             >
               {cat}
@@ -133,7 +130,7 @@ export default function Projects() {
         {/* Project Grid with Animation */}
         <motion.div
           layout
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
@@ -143,22 +140,22 @@ export default function Projects() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
               >
                 <Link
                   href={`/websites/${project.id}`}
-                  className="group relative rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform"
+                  className="group relative rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300"
                 >
                   <Image
                     src={project.image}
                     alt={project.title}
                     width={500}
                     height={300}
-                    className="w-full h-64 object-cover group-hover:opacity-80 transition"
+                    className="w-full h-52 sm:h-60 md:h-64 lg:h-72 object-cover group-hover:opacity-80 transition"
                   />
-                  <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 via-black/30 to-transparent w-full">
-                    <h3 className="text-lg font-bold">{project.title}</h3>
-                    <p className="text-sm text-green-500">{project.category}</p>
+                  <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent w-full">
+                    <h3 className="text-base md:text-lg font-bold">{project.title}</h3>
+                    <p className="text-xs md:text-sm text-green-500">{project.category}</p>
                   </div>
                 </Link>
               </motion.div>

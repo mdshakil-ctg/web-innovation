@@ -1,4 +1,5 @@
 // components/ServicesSection.jsx
+import Link from "next/link";
 import { FaCode, FaCloud } from "react-icons/fa";
 
 const services = [
@@ -8,7 +9,6 @@ const services = [
     description:
       "Web development is the process of creating websites and web applications for the internet or mobile application.",
     icon: <FaCode className="text-green-400 text-4xl" />,
-    link: "#",
   },
   {
     id: "02",
@@ -16,7 +16,6 @@ const services = [
     description:
       "Digital Marketing is the process of promoting products, services, or brands through online channels such as search engines, social media, email, and websites.",
     icon: <FaCloud className="text-green-400 text-4xl" />,
-    link: "#",
   },
 ];
 
@@ -31,8 +30,9 @@ export default function ServicesSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service) => (
-            <div
+            <Link
               key={service.id}
+              href="/service"
               className="bg-[#111113] rounded-lg p-8 flex flex-col justify-between relative overflow-hidden group hover:shadow-lg hover:shadow-green-500/20 transition duration-300"
             >
               <span className="text-gray-600 text-3xl font-bold">
@@ -40,16 +40,13 @@ export default function ServicesSection() {
               </span>
               <h3 className="text-xl font-bold mt-4">{service.title}</h3>
               <p className="text-gray-400 mt-3">{service.description}</p>
-              <a
-                href={service.link}
-                className="mt-4 text-green-400 font-semibold inline-flex items-center hover:underline"
-              >
+              <span className="mt-4 text-green-400 font-semibold inline-flex items-center hover:underline">
                 LEARN MORE →
-              </a>
+              </span>
               <div className="absolute bottom-4 right-4 opacity-20 group-hover:opacity-40 transition">
                 {service.icon}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

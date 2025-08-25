@@ -11,7 +11,7 @@ import WhatWeDo from "./components/Whatwedo";
 
 export default function Home() {
   return (
-    <div className="pb-12 bg-black text-white space-y-5">
+    <div className="pb-12 text-white space-y-5 md:space-y-24">
       <Banner/>
       <Review/>
       <Choose/>

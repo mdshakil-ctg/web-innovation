@@ -10,6 +10,9 @@ import Link from "next/link";
 export default function ProjectDetails() {
   const { id } = useParams();
   const project = projects.find((p) => p.id === Number(id));
+  const projectIndex = projects.findIndex((p) => p.id === Number(id));
+  const prevProject = projects[projectIndex - 1];
+  const nextProject = projects[projectIndex + 1];
 
   if (!project) return <p className="text-center mt-20">Project not found</p>;
 
@@ -65,25 +68,9 @@ export default function ProjectDetails() {
               height={300}
               className="rounded-lg object-cover w-full h-full"
             />
-            <Image
-              src="/workstation7.png"
-              alt="Supporting Image 2"
-              width={500}
-              height={300}
-              className="rounded-lg object-cover w-full h-full"
-            />
           </div>
 
           {/* right image */}
-          <div className="lg:col-span-2">
-            <Image
-              src="/workstation9.png"
-              alt="Supporting Image 1"
-              width={500}
-              height={800}
-              className="rounded-lg object-cover w-full h-full"
-            />
-          </div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-3 gap-8">
@@ -92,7 +79,7 @@ export default function ProjectDetails() {
             {/* Project Overview */}
             <section>
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl text-white font-bold">
+                <h2 className="text-xl text-white font-bold flex-0">
                   Projects Overview
                 </h2>
                 <Link
@@ -202,9 +189,9 @@ export default function ProjectDetails() {
               <div className="relative px-6 flex flex-col justify-center h-full">
                 <h2 className="text-white font-bold text-2xl">Ready to</h2>
                 <h3 className="text-gray-300 text-2xl mb-6">work with us?</h3>
-                <button className="bg-emerald-500 hover:bg-emerald-600 text-black font-semibold py-2 px-4 rounded-md w-fit">
-                  Get a quote
-                </button>
+                <div>
+                  <Link href="/#contactme"><Button text="Get a quote"/></Link>
+                </div>
               </div>
             </div>
           </div>
@@ -228,42 +215,52 @@ export default function ProjectDetails() {
             {/* Navigation Links */}
             <div className="flex justify-between items-center">
               {/* Previous */}
-              <div className="flex flex-col md:flex-row items-start gap-3">
-                <Image
-                  src="/workstation2.png" // Replace with actual image path
-                  alt="Previous Project"
-                  width={600}
-                  height={400}
-                  className="w-14 h-14 rounded-full object-cover"
-                />
-                <div>
-                  <span className="text-emerald-500 text-xs font-semibold block">
-                    PREVIOUS
-                  </span>
-                  <p className="font-bold leading-snug">
-                    Accumsan Purus Vel, Pellentesque Risus
-                  </p>
-                </div>
-              </div>
+              {prevProject ? (
+                <Link
+                  href={`/websites/${prevProject.id}`}
+                  className="flex flex-col md:flex-row items-start gap-3"
+                >
+                  <Image
+                    src={prevProject.image}
+                    alt={prevProject.title}
+                    width={600}
+                    height={400}
+                    className="w-14 h-14 rounded-full object-cover"
+                  />
+                  <div>
+                    <span className="text-emerald-500 text-xs font-semibold block">
+                      PREVIOUS
+                    </span>
+                    <p className="font-bold leading-snug">{prevProject.title}</p>
+                  </div>
+                </Link>
+              ) : (
+                <div />
+              )}
 
               {/* Next */}
-              <div className="flex flex-col-reverse md:flex-row items-end gap-3 text-right">
-                <div>
-                  <span className="text-emerald-500 text-xs font-semibold block">
-                    NEXT
-                  </span>
-                  <p className="font-bold leading-snug">
-                    Ut Sed Commodo Neque Morbi Erat Nisi
-                  </p>
-                </div>
-                <Image
-                  src="/workstation.png" // Replace with actual image path
-                  alt="Next Project"
-                  width={600}
-                  height={400}
-                  className="w-14 h-14 rounded-full object-cover"
-                />
-              </div>
+              {nextProject ? (
+                <Link
+                  href={`/websites/${nextProject.id}`}
+                  className="flex flex-col-reverse md:flex-row items-end gap-3 text-right"
+                >
+                  <div>
+                    <span className="text-emerald-500 text-xs font-semibold block">
+                      NEXT
+                    </span>
+                    <p className="font-bold leading-snug">{nextProject.title}</p>
+                  </div>
+                  <Image
+                    src={nextProject.image}
+                    alt={nextProject.title}
+                    width={600}
+                    height={400}
+                    className="w-14 h-14 rounded-full object-cover"
+                  />
+                </Link>
+              ) : (
+                <div />
+              )}
             </div>
 
             <hr className="border-gray-700 mt-6" />

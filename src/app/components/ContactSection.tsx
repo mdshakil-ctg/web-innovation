@@ -22,6 +22,8 @@ export default function ContactSection() {
     },
     { title: "Can you help improve my website's SEO?", content: "Yes, Our developers will help you improve your SEO ranking with their expertise. As the best of one Website Development Company in Chittagong, we are professional at this part." },
     { title: "Will I be able to update my website myself?", content: "Yes, you can update your website by yourself. Web Innovation develop dynamic websites with the user-friendly framework and customizable websites so that you can change or update your website contents, images, or more without having any technical skills." },
+    { title: "How long will it take to build my website?", content: "The timeline depends on the complexity of your project. A basic website usually takes 1–2 weeks, while larger custom platforms may take 1–3 months. At Web Innovation, we always set clear deadlines and keep you updated at every stage of development." },
+    { title: "Will my website work on mobile devices?", content: "Absolutely. All websites developed by Web Innovation are fully responsive, meaning they look and function perfectly on desktops, tablets, and mobile devices. We prioritize a mobile-first approach since most users browse from smartphones today." },
 
   ];
 

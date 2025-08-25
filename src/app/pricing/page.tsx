@@ -1,121 +1,102 @@
-"use client";
-import { useState } from "react";
-import Link from "next/link";
-import BannerTitle from "../components/shared/BaneerTitle";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Check } from "lucide-react";
 import Button from "../components/shared/Button";
 
+const packages = [
+  {
+    name: "Beginner",
+    price: "BDT ১০,০০০/",
+    features: [
+      "ফ্রি .com/.net/.org ডোমেইন",
+      "৫GB SSD হোস্টিং",
+      "ব্যান্ডউইথ: ১০০GB",
+      "সার্ভার মেইনটেনেন্স: লাইফটাইম",
+      "সর্বোচ্চ ডাইনামিক পেজ: ৫",
+      "শপিং কার্ট, শিপমেন্ট অপশন",
+      "পেমেন্ট: মোবাইল ব্যাঙ্কিং, কার্ড",
+      "অর্ডার ম্যানেজমেন্ট অপশন",
+      "অটো জেনারেটেড বিল",
+      "মাল্টিপল ইমেজ অপশন: না",
+      "পোস্ট-সেলস সাপোর্ট: ১ মাস",
+      "ডেভেলপমেন্ট টাইমলাইন: ৫ দিন",
+      "রিনিউ: ৩,০০০ টাকা/বছর",
+    ],
+  },
+  {
+    name: "Buisness",
+    price: "BDT ২০,০০০/",
+    features: [
+      "ফ্রি .com/.net/.org ডোমেইন",
+      "১৫GB SSD হোস্টিং",
+      "ব্যান্ডউইথ: ৫০০GB",
+      "সার্ভার মেইনটেনেন্স: লাইফটাইম",
+      "সর্বোচ্চ ডাইনামিক পেজ: ১০",
+      "শপিং কার্ট, শিপমেন্ট অপশন",
+      "পেমেন্ট: মোবাইল ব্যাঙ্কিং, কার্ড",
+      "অর্ডার ম্যানেজমেন্ট অপশন",
+      "অটো জেনারেটেড বিল",
+      "মাল্টিপল ইমেজ অপশন: হ্যাঁ",
+      "পোস্ট-সেলস সাপোর্ট: ২ মাস",
+      "ডেভেলপমেন্ট টাইমলাইন: ১০ দিন",
+      "রিনিউ: ৫,০০০ টাকা/বছর",
+    ],
+  },
+  {
+    name: "Corporate",
+    price: "BDT ৫০,০০০/",
+    features: [
+      "ফ্রি .com/.net/.org ডোমেইন",
+      "১০০GB SSD হোস্টিং",
+      "ব্যান্ডউইথ: আনলিমিটেড",
+      "সার্ভার মেইনটেনেন্স: লাইফটাইম",
+      "সর্বোচ্চ ডাইনামিক পেজ: ২০",
+      "শপিং কার্ট, শিপমেন্ট অপশন",
+      "পেমেন্ট: মোবাইল ব্যাঙ্কিং, কার্ড",
+      "অর্ডার ম্যানেজমেন্ট অপশন",
+      "অটো জেনারেটেড বিল",
+      "মাল্টিপল ইমেজ অপশন: হ্যাঁ",
+      "পোস্ট-সেলস সাপোর্ট: ৩ মাস",
+      "ডেভেলপমেন্ট টাইমলাইন: ১৫ দিন",
+      "রিনিউ: ১০,০০০ টাকা/বছর",
+    ],
+  },
+];
+
 export default function PricingPlans() {
-  const [isYearly, setIsYearly] = useState(false);
-
-  const plans = [
-    {
-      name: "Basic Plan",
-      monthly: 29,
-      yearly: 200,
-      features: [
-        "Email & Communication Services",
-        "Basic Data Backup And Storage",
-        "Standard Security Measures",
-        "Limited Software Support",
-        "Suitable For Small Businesses",
-      ],
-    },
-    {
-      name: "Professional Plan",
-      monthly: 49,
-      yearly: 490,
-      features: [
-        "Email & Communication Services",
-        "Basic Data Backup And Storage",
-        "Standard Security Measures",
-        "Limited Software Support",
-        "Suitable For Small Businesses",
-      ],
-    },
-    {
-      name: "Enterprise Plan",
-      monthly: 89,
-      yearly: 890,
-      features: [
-        "Email & Communication Services",
-        "Basic Data Backup And Storage",
-        "Standard Security Measures",
-        "Limited Software Support",
-        "Suitable For Small Businesses",
-      ],
-    },
-  ];
-
   return (
-    <>
-    <BannerTitle title="Pricing"/>
-    <section className="bg-black text-white py-16">
-      <div className="text-center mb-16">
-        <h2 className="text-xl md:text-4xl font-bold mb-10">Choose Your Plan</h2>
-
-        {/* Billing Toggle */}
-        <div className="mt-4 flex justify-center gap-2 bg-gray-900 rounded-full text-sm md:text-md md:px-2 md:py-1 w-fit mx-auto">
-          <button
-            className={`px-2 py-1 md:px-4 md:py-2 rounded-full font-semibold transition ${
-              !isYearly ? "bg-green-500 text-black" : "hover:bg-gray-800"
-            }`}
-            onClick={() => setIsYearly(false)}
+    <div className="py-12">
+      <h2 className="text-xl md:text-3xl font-bold text-center mb-10 md:mb-16 text-gray-500 drop-shadow-md">
+        প্যাকেজ ও মূল্য তালিকা
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+        {packages.map((pkg, idx) => (
+          <Card
+            key={idx}
+            className="bg-[#111827] text-white rounded-2xl border border-gray-600 shadow-lg shadow-green-500/40 hover:shadow-green-400/80 hover:scale-105 transition-transform relative overflow-hidden"
           >
-            Billed Monthly
-          </button>
-          <button
-            className={`px-2 py-1 md:px-4 md:py-2 rounded-full font-semibold transition flex items-center gap-1 ${
-              isYearly ? "bg-green-500 text-black" : "hover:bg-gray-800"
-            }`}
-            onClick={() => setIsYearly(true)}
-          >
-            Billed Yearly{" "}
-            <span className=" text-[8px] bg-green-500 px-1 md:px-3 py-1 rounded-full font-normal">30% OFF</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Plans */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-4 cursor-pointer">
-        {plans.map((plan, index) => (
-          <div
-            key={index}
-            className="bg-gradient-to-b from-gray-900 to-black rounded-xl p-6 border border-gray-800 hover:border-green-500 transition"
-          >
-            <h3 className="text-green-500 text-lg font-semibold text-center">
-              {plan.name}
-            </h3>
-            <div className="text-center mt-4">
-              <span className="text-5xl font-bold">
-                ${isYearly ? plan.yearly : plan.monthly}
-              </span>
-              <span className="text-green-500 ml-1">
-                /{isYearly ? "Yearly" : "Monthly"}
-              </span>
-            </div>
-
-            <ul className="my-12 space-y-3">
-              {plan.features.map((feature, i) => (
-                <li
-                  key={i}
-                  className="flex justify-between items-center border-b border-gray-800 pb-2"
-                >
-                  <span>{feature}</span>
-                  <span className="text-green-500 font-bold">✔</span>
-                </li>
+            <CardHeader className="p-6">
+              <div className="text-4xl font-extrabold text-green-500 opacity-20 absolute top-4 left-4">
+                {String(idx + 1).padStart(2, "0")}
+              </div>
+              <CardTitle className="text-3xl font-bold relative z-10 text-center text-green-600">
+                {pkg.name}
+              </CardTitle>
+              <p className="text-lg font-semibold text-center relative z-10">{pkg.price}</p>
+            </CardHeader>
+            <CardContent className="p-6 md:p-10 space-y-3 relative z-10">
+              {pkg.features.map((feature, fIdx) => (
+                <div key={fIdx} className="flex items-start flex-1 gap-2">
+                  <Check className="w-5 h-5 text-green-400 mt-1" />
+                  <span className="text-gray-300 text-sm font-bold flex-1">{feature}</span>
+                </div>
               ))}
-            </ul>
-
-            <div className="mt-6 text-center">
-              <Link href="/checkout">
-                <Button text="Pay Now"/>
-              </Link>
-            </div>
-          </div>
+              <div className="flex justify-center mt-4">
+                <Button text="Go Portfolio"/>
+              </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
-    </section>
-    
-    </>
+    </div>
   );
 }

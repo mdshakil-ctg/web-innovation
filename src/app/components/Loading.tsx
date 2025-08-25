@@ -7,7 +7,7 @@ export default function Loading({ show }: { show: boolean }) {
      <AnimatePresence>
       {show && (
         <motion.div
-          className="fixed inset-0 bg-black flex items-center justify-center z-[9999] overflow-hidden"
+          className="fixed inset-0 flex items-center justify-center z-[9999] overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

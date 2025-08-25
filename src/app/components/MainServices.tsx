@@ -1,6 +1,7 @@
 // components/Services.tsx
 import { ReactNode } from "react";
-import {
+import Link from "next/link";
+import { 
   FaCode,
   FaCloud,
   FaShieldAlt,
@@ -89,11 +90,11 @@ export default function MainServices() {
   ];
 
   return (
-    <section className="bg-black text-white py-24 px-4 cursor-pointer">
+    <section className=" text-white py-24 px-4 cursor-pointer">
       <div className="max-w-7xl mx-auto">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, idx) => (
-            <ServiceCard key={idx} {...service} />
+            <Link href="/websites" key={idx}><ServiceCard  {...service} /></Link>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaPinterestP } from "react-icons/fa";
 import { HiOutlineMail, HiOutlineLocationMarker, HiOutlinePhone } from "react-icons/hi";
 
@@ -38,7 +39,7 @@ export default function Footer() {
                 <h3 className="font-semibold">Address</h3>
               </div>
               <p className="text-gray-400 text-sm mt-1">
-                House 168/170, Avenue 01, Oxigen DOHS, Chittagong Bangladesh
+                168/170, Avenue 01, Oxigen DOHS, Chittagong Bangladeash
               </p>
             </div>
 
@@ -57,7 +58,7 @@ export default function Footer() {
             <div className="flex">
               <input
                 type="email"
-                placeholder="Enter here..."
+                placeholder="Enter your email..."
                 className="bg-transparent border border-gray-700 p-2 w-full focus:outline-none text-sm"
               />
               <button className="bg-green-500 px-4 flex items-center justify-center">
@@ -95,10 +96,10 @@ export default function Footer() {
           {/* Resources */}
           <div>
             <h3 className="font-bold mb-3">Resources</h3>
+              <Link href="/terms"><li className="text-red-400 mb-1 list-none text-sm">Terms & Conditions</li></Link>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>Support Area</li>
               <li>Support Policy</li>
-              <li>Terms & Conditions</li>
               <li>Privacy Policy</li>
               <li>Career</li>
               <li>Pricing Plan</li>

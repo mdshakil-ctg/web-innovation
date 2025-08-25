@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased bg-black pt-24`}>
+      <body className={`${poppins.className} antialiased pt-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat bg-fixed z-20`}>
         <LoadingProvider>
         <Navbar />
         <main>{children}</main>

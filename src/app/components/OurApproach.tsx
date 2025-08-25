@@ -5,7 +5,7 @@ import Img2 from "@/assets/about-2.jpg"
 
 export default function OurApproach() {
   return (
-    <section className="bg-black text-white py-16 px-4">
+    <section className="text-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <div className="mb-10">
@@ -77,7 +77,7 @@ export default function OurApproach() {
             </div>
 
             {/* Badge */}
-            <div className="w-40 h-40 rounded-full bg-green-400 flex flex-col items-center justify-center text-black font-bold text-center relative">
+            <div className="w-40 h-40 rounded-full bg-green-700 flex flex-col items-center justify-center text-black font-bold text-center relative mt-10 md:pt-0">
               <span className="text-4xl">5</span>
               <span className="text-lg">Years</span>
               {/* Optional surrounding text effect */}
