@@ -4,13 +4,16 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LoadingProvider from "./providers/LoadingProvider";
+import { AuthProvider } from "./context/AuthContext";
+import { ModalProvider } from "./components/Modal/ModalProvider";
 
 export const metadata: Metadata = {
   title: "Web Innovation",
-  description: "Discover our web innovation app that helps businesses transform ideas into digital solutions with cutting-edge technology and user-friendly design.",
+  description:
+    "Discover our web innovation app that helps businesses transform ideas into digital solutions with cutting-edge technology and user-friendly design.",
   icons: {
     icon: "/logo.png",
-  }
+  },
 };
 
 const poppins = Poppins({
@@ -25,12 +28,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} antialiased pt-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat bg-fixed z-20`}>
-        <LoadingProvider>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        </LoadingProvider>
+      <body
+        className={`${poppins.className} antialiased pt-16 bg-[url('/background.png')] bg-cover bg-center bg-no-repeat bg-fixed z-20`}
+      >
+        <AuthProvider>
+          <ModalProvider>
+            <LoadingProvider>
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </LoadingProvider>
+          </ModalProvider>
+        </AuthProvider>
       </body>
     </html>
   );

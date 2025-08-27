@@ -98,8 +98,8 @@ const Navbar = () => {
         </Link>
 
         {!isLoggedIn ? (
-          <Link href="/login" className="hidden md:flex">
-            <Button text="Login" />
+          <Link href="/signup" className="hidden md:flex">
+            <Button text="Sign Up" />
           </Link>
         ) : (
           <Link href="/profile" className="hidden md:flex">
