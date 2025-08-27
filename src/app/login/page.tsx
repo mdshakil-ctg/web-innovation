@@ -1,14 +1,13 @@
-// /app/login/page.tsx
+"use client";
+
 import { Suspense } from "react";
 import LoginForm from "./LoginForm";
-import Loading from "../components/Loading";
-
-export const dynamic = "force-dynamic"; // Ensures no static pre-rendering
+// import LoginForm from "@/components/LoginForm"; // adjust path if needed
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-black flex justify-center items-center overflow-hidden">
-      <Suspense fallback={<Loading show={true} />}>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <Suspense fallback={<div>Loading login...</div>}>
         <LoginForm />
       </Suspense>
     </div>

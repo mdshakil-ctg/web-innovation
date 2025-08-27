@@ -1,7 +1,7 @@
 // /app/login/LoginForm.tsx
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
@@ -14,12 +14,12 @@ interface LoginFormValues {
   password: string;
 }
 
-const LoginForm: React.FC = () => {
+function LoginFormContent() {
   const { loginUser, googleSignup, facebookSignup, loading, setLoading } = useAuth();
   const [isChecked, setIsChecked] = useState(false);
   const { openModal } = useModal();
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = useSearchParams(); // ✅ safe here
   const redirectTo = searchParams.get("from") || "/";
 
   const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>();
@@ -113,6 +113,12 @@ const LoginForm: React.FC = () => {
       </p>
     </form>
   );
-};
+}
 
-export default LoginForm;
+export default function LoginForm() {
+  return (
+    <Suspense fallback={<div className="text-center text-white">Loading login form...</div>}>
+      <LoginFormContent />
+    </Suspense>
+  );
+}
