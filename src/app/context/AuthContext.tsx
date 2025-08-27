@@ -8,6 +8,10 @@ import {
   updateProfile,
   onAuthStateChanged,
   User,
+  GoogleAuthProvider,
+  FacebookAuthProvider,
+  UserCredential,
+  signInWithPopup
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
@@ -21,6 +25,8 @@ interface AuthContextType {
   loginUser: (email: string, password: string) => Promise<User>;
   logoutUser: () => Promise<void>;
   updateUser: (name: string) => Promise<void>;
+  googleSignup: () => Promise<UserCredential>;
+  facebookSignup: () => Promise<UserCredential>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -79,8 +85,38 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     setUser({ ...auth.currentUser });
   };
 
+  const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+
+  // Google Signup
+  const googleSignup = async (): Promise<UserCredential> => {
+    setLoading(true);
+    const result = await signInWithPopup(auth, googleProvider);
+    setUser(result.user);
+    setLoading(false);
+    return result;
+  };
+
+  // Facebook Signup
+  const facebookSignup = async (): Promise<UserCredential> => {
+    setLoading(true);
+    const result = await signInWithPopup(auth, facebookProvider);
+    setUser(result.user);
+    setLoading(false);
+    return result;
+  };
+
+
   return (
-    <AuthContext.Provider value={{ user, loading, setLoading, createUser, loginUser, logoutUser, updateUser }}>
+    <AuthContext.Provider value={{ user,
+    loading,
+    setLoading,
+    createUser,
+    loginUser,
+    logoutUser,
+    updateUser,
+    googleSignup,
+    facebookSignup}}>
       {children}
     </AuthContext.Provider>
   );
