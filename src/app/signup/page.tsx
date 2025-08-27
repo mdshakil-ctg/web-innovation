@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useModal } from "../hooks/useModal";
@@ -27,16 +27,28 @@ const SignUpPage: React.FC = () => {
   const [isChecked, setIsChecked] = useState(false);
   const { openModal } = useModal();
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams.get("from") || "/";
+  const [redirectTo, setRedirectTo] = useState("/");
 
-  const { register, handleSubmit, formState: { errors } } = useForm<SignUpFormValues>();
+  // ✅ Fix: use window.location.search instead of useSearchParams
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      setRedirectTo(params.get("from") || "/");
+    }
+  }, []);
+
+  const { register, handleSubmit, formState: { errors } } =
+    useForm<SignUpFormValues>();
 
   // Email/Password signup
   const handleForm: SubmitHandler<SignUpFormValues> = async (data) => {
     setLoading(true);
     try {
-      const userCredential = await createUser(data.email, data.password, data.name);
+      const userCredential = await createUser(
+        data.email,
+        data.password,
+        data.name
+      );
       if (userCredential) await updateUser(data.name);
 
       openModal({
@@ -99,7 +111,9 @@ const SignUpPage: React.FC = () => {
         <div className="absolute w-56 h-56 bg-blue-600 rounded-full -top-32 -left-32 opacity-40 blur-3xl"></div>
         <div className="absolute w-56 h-56 bg-orange-500 rounded-full -bottom-32 -right-32 opacity-40 blur-3xl"></div>
 
-        <h2 className="text-2xl font-semibold text-white text-center mb-2">Sign Up Here</h2>
+        <h2 className="text-2xl font-semibold text-white text-center mb-2">
+          Sign Up Here
+        </h2>
 
         {/* Full Name */}
         <label className="text-gray-300 text-sm font-medium">Full Name</label>
@@ -108,7 +122,9 @@ const SignUpPage: React.FC = () => {
           placeholder="Your Full Name"
           className="p-3 rounded-md bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
         />
-        {errors.name && <span className="text-red-400 text-xs">Name is required</span>}
+        {errors.name && (
+          <span className="text-red-400 text-xs">Name is required</span>
+        )}
 
         {/* User ID */}
         <label className="text-gray-300 text-sm font-medium">User ID</label>
@@ -117,7 +133,9 @@ const SignUpPage: React.FC = () => {
           placeholder="Email or Phone"
           className="p-3 rounded-md bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
         />
-        {errors.email && <span className="text-red-400 text-xs">Email is required</span>}
+        {errors.email && (
+          <span className="text-red-400 text-xs">Email is required</span>
+        )}
 
         {/* Password */}
         <label className="text-gray-300 text-sm font-medium">Password</label>
@@ -127,7 +145,11 @@ const SignUpPage: React.FC = () => {
           placeholder="Your Password"
           className="p-3 rounded-md bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
         />
-        {errors.password && <span className="text-red-400 text-xs">Password must be 6+ characters</span>}
+        {errors.password && (
+          <span className="text-red-400 text-xs">
+            Password must be 6+ characters
+          </span>
+        )}
 
         {/* Terms & Conditions */}
         <div className="flex items-center gap-2 text-xs">
@@ -138,8 +160,8 @@ const SignUpPage: React.FC = () => {
             onChange={(e) => setIsChecked(e.target.checked)}
           />
           <label htmlFor="terms" className="text-gray-400">
-            I agree with <span className="underline">Terms and Conditions</span> and{" "}
-            <span className="underline">Privacy Policies</span>
+            I agree with <span className="underline">Terms and Conditions</span>{" "}
+            and <span className="underline">Privacy Policies</span>
           </label>
         </div>
 
