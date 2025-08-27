@@ -15,13 +15,12 @@ import {
 } from "firebase/auth";
 import { auth } from "@/lib/firebase";
 
-
 // Types
 interface AuthContextType {
   user: User | null;
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  createUser: (email: string, password: string) => Promise<User>;
+  createUser: (email: string, password: string, name: string) => Promise<User>;
   loginUser: (email: string, password: string) => Promise<User>;
   logoutUser: () => Promise<void>;
   updateUser: (name: string) => Promise<void>;
@@ -54,20 +53,47 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     return () => unsubscribe();
   }, []);
 
-  // Register
-  const createUser = async (email: string, password: string) => {
+  // Helper: Register user in MongoDB
+  const registerUserInMongo = async (user: User, provider: string) => {
+    try {
+      await fetch("/api/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          uid: user.uid,
+          name: user.displayName || "",
+          email: user.email,
+          provider,
+        }),
+      });
+    } catch (error) {
+      console.error("Failed to register user in MongoDB:", error);
+    }
+  };
+
+  // Register with email/password
+  const createUser = async (email: string, password: string, name: string) => {
     setLoading(true);
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    await updateProfile(userCredential.user, { displayName: name });
     setUser(userCredential.user);
+
+    // Register in MongoDB
+    await registerUserInMongo(userCredential.user, "email");
+
     setLoading(false);
     return userCredential.user;
   };
 
-  // Login
+  // Login with email/password
   const loginUser = async (email: string, password: string) => {
     setLoading(true);
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     setUser(userCredential.user);
+
+    // Register in MongoDB if not exists
+    await registerUserInMongo(userCredential.user, "email");
+
     setLoading(false);
     return userCredential.user;
   };
@@ -86,37 +112,44 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   };
 
   const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
 
-  // Google Signup
+  // Google signup/login
   const googleSignup = async (): Promise<UserCredential> => {
     setLoading(true);
     const result = await signInWithPopup(auth, googleProvider);
     setUser(result.user);
+
+    await registerUserInMongo(result.user, "google");
+
     setLoading(false);
     return result;
   };
 
-  // Facebook Signup
+  // Facebook signup/login
   const facebookSignup = async (): Promise<UserCredential> => {
     setLoading(true);
     const result = await signInWithPopup(auth, facebookProvider);
     setUser(result.user);
+
+    await registerUserInMongo(result.user, "facebook");
+
     setLoading(false);
     return result;
   };
 
-
   return (
-    <AuthContext.Provider value={{ user,
-    loading,
-    setLoading,
-    createUser,
-    loginUser,
-    logoutUser,
-    updateUser,
-    googleSignup,
-    facebookSignup}}>
+    <AuthContext.Provider value={{
+      user,
+      loading,
+      setLoading,
+      createUser,
+      loginUser,
+      logoutUser,
+      updateUser,
+      googleSignup,
+      facebookSignup
+    }}>
       {children}
     </AuthContext.Provider>
   );

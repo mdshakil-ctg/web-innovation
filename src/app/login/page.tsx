@@ -8,41 +8,31 @@ import { useModal } from "../hooks/useModal";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 
-interface SignUpFormValues {
-  name: string;
+interface LoginFormValues {
   email: string;
   password: string;
 }
 
-const SignUpPage: React.FC = () => {
-  const {
-    createUser,
-    updateUser,
-    googleSignup,
-    facebookSignup,
-    loading,
-    setLoading,
-  } = useAuth();
-
+const LoginPage: React.FC = () => {
+  const { loginUser, googleSignup, facebookSignup, loading, setLoading } = useAuth();
   const [isChecked, setIsChecked] = useState(false);
   const { openModal } = useModal();
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("from") || "/";
 
-  const { register, handleSubmit, formState: { errors } } = useForm<SignUpFormValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginFormValues>();
 
-  // Email/Password signup
-  const handleForm: SubmitHandler<SignUpFormValues> = async (data) => {
+  // Email/Password login
+  const handleForm: SubmitHandler<LoginFormValues> = async (data) => {
     setLoading(true);
     try {
-      const userCredential = await createUser(data.email, data.password, data.name);
-      if (userCredential) await updateUser(data.name);
+      const user = await loginUser(data.email, data.password);
 
       openModal({
-        title: `Welcome ${data.name}`,
-        message: "Please check your email for exclusive offers!",
-        autoCloseTime: 5000,
+        title: `Welcome back!`,
+        message: `Successfully logged in.`,
+        autoCloseTime: 4000,
       });
 
       setLoading(false);
@@ -50,18 +40,23 @@ const SignUpPage: React.FC = () => {
     } catch (error) {
       setLoading(false);
       console.error(error);
+      openModal({
+        title: "Login Failed",
+        message: "Invalid email or password.",
+        autoCloseTime: 4000,
+      });
     }
   };
 
-  // Google signup
-  const handleGoogleSignup = async () => {
+  // Google login
+  const handleGoogleLogin = async () => {
     setLoading(true);
     try {
       await googleSignup();
       openModal({
         title: "Welcome with Google!",
-        message: "You’ve successfully signed up with Google.",
-        autoCloseTime: 5000,
+        message: "Successfully logged in with Google.",
+        autoCloseTime: 4000,
       });
       setLoading(false);
       router.push(redirectTo);
@@ -71,15 +66,15 @@ const SignUpPage: React.FC = () => {
     }
   };
 
-  // Facebook signup
-  const handleFacebookSignup = async () => {
+  // Facebook login
+  const handleFacebookLogin = async () => {
     setLoading(true);
     try {
       await facebookSignup();
       openModal({
         title: "Welcome with Facebook!",
-        message: "You’ve successfully signed up with Facebook.",
-        autoCloseTime: 5000,
+        message: "Successfully logged in with Facebook.",
+        autoCloseTime: 4000,
       });
       setLoading(false);
       router.push(redirectTo);
@@ -99,22 +94,13 @@ const SignUpPage: React.FC = () => {
         <div className="absolute w-56 h-56 bg-blue-600 rounded-full -top-32 -left-32 opacity-40 blur-3xl"></div>
         <div className="absolute w-56 h-56 bg-orange-500 rounded-full -bottom-32 -right-32 opacity-40 blur-3xl"></div>
 
-        <h2 className="text-2xl font-semibold text-white text-center mb-2">Sign Up Here</h2>
+        <h2 className="text-2xl font-semibold text-white text-center mb-2">Login Here</h2>
 
-        {/* Full Name */}
-        <label className="text-gray-300 text-sm font-medium">Full Name</label>
-        <input
-          {...register("name", { required: true })}
-          placeholder="Your Full Name"
-          className="p-3 rounded-md bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
-        />
-        {errors.name && <span className="text-red-400 text-xs">Name is required</span>}
-
-        {/* User ID */}
-        <label className="text-gray-300 text-sm font-medium">User ID</label>
+        {/* Email */}
+        <label className="text-gray-300 text-sm font-medium">Email or Phone</label>
         <input
           {...register("email", { required: true })}
-          placeholder="Email or Phone"
+          placeholder="Your Email or Phone"
           className="p-3 rounded-md bg-gray-800 text-white focus:ring-2 focus:ring-blue-500 outline-none"
         />
         {errors.email && <span className="text-red-400 text-xs">Email is required</span>}
@@ -129,33 +115,32 @@ const SignUpPage: React.FC = () => {
         />
         {errors.password && <span className="text-red-400 text-xs">Password must be 6+ characters</span>}
 
-        {/* Terms & Conditions */}
+        {/* Remember Me */}
         <div className="flex items-center gap-2 text-xs">
           <input
             type="checkbox"
-            id="terms"
+            id="remember"
             className="w-4 h-4 accent-orange-500"
             onChange={(e) => setIsChecked(e.target.checked)}
           />
-          <label htmlFor="terms" className="text-gray-400">
-            I agree with <span className="underline">Terms and Conditions</span> and{" "}
-            <span className="underline">Privacy Policies</span>
+          <label htmlFor="remember" className="text-gray-400">
+            Remember Me
           </label>
         </div>
 
-        {/* Register button */}
+        {/* Login button */}
         <button
-          disabled={!isChecked || loading}
+          disabled={loading || !isChecked}
           className="bg-orange-600 hover:bg-orange-500 text-black font-bold py-3 rounded-md disabled:opacity-50 transition"
         >
-          {loading ? "Loading..." : "Register"}
+          {loading ? "Loading..." : "Login"}
         </button>
 
-        {/* Already have an account */}
+        {/* Forgot Password */}
         <p className="text-gray-400 text-center text-xs">
-          Already have an account?{" "}
-          <a href="/login" className="text-blue-500">
-            Log In Here!
+          Forgot your password?{" "}
+          <a href="/reset-password" className="text-blue-500">
+            Reset Here
           </a>
         </p>
 
@@ -163,22 +148,30 @@ const SignUpPage: React.FC = () => {
         <div className="flex sm:flex-row gap-4 mt-2">
           <button
             type="button"
-            onClick={handleGoogleSignup}
+            onClick={handleGoogleLogin}
             className="flex-1 flex items-center justify-center gap-2 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition"
           >
             <FcGoogle size={20} />
           </button>
           <button
             type="button"
-            onClick={handleFacebookSignup}
+            onClick={handleFacebookLogin}
             className="flex-1 flex items-center justify-center gap-2 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 transition"
           >
             <FaFacebookF size={20} className="text-blue-500" />
           </button>
         </div>
+
+        {/* Sign Up link */}
+        <p className="text-gray-400 text-center text-xs mt-2">
+          Don’t have an account?{" "}
+          <a href="/signup" className="text-blue-500">
+            Sign Up Here!
+          </a>
+        </p>
       </form>
     </div>
   );
 };
 
-export default SignUpPage;
+export default LoginPage;
