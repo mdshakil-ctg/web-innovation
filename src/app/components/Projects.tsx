@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -101,11 +101,22 @@ export const projects: Project[] = [
 
 export default function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
-
+const gridRef = useRef<HTMLDivElement | null>(null);
   const filteredProjects =
     activeCategory === "All"
       ? projects
       : projects.filter((p) => p.category === activeCategory);
+
+       // Scroll down when category changes
+  useEffect(() => {
+  if (typeof window !== "undefined") {
+    const isMobile = window.innerWidth <= 768; // mobile breakpoint
+    if (isMobile && gridRef.current) {
+      gridRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+}, [activeCategory]);
+
 
   return (
     <section className="text-white py-12 md:py-16 px-4">
@@ -116,10 +127,10 @@ export default function Projects() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 md:px-5 py-2 text-xs md:text-sm lg:text-base rounded-full cursor-pointer transition-colors ${
+              className={`px-4 md:px-5 py-2 text-[10px] md:text-sm lg:text-base rounded-full cursor-pointer transition-colors ${
                 activeCategory === cat
                   ? "bg-green-500 text-black font-bold"
-                  : "bg-gray-900 hover:bg-green-500 hover:text-black"
+                  : "bg-gray-950 hover:bg-green-500 hover:text-black"
               }`}
             >
               {cat}
@@ -129,8 +140,9 @@ export default function Projects() {
 
         {/* Project Grid with Animation */}
         <motion.div
+        ref={gridRef}
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
@@ -151,7 +163,7 @@ export default function Projects() {
                     alt={project.title}
                     width={500}
                     height={300}
-                    className="w-full h-52 sm:h-60 md:h-64 lg:h-72 object-cover group-hover:opacity-80 transition"
+                    className="w-full h-full object-cover group-hover:opacity-80 transition"
                   />
                   <div className="absolute bottom-0 left-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent w-full">
                     <h3 className="text-base md:text-lg font-bold">{project.title}</h3>

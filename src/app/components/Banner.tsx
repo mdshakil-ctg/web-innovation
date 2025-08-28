@@ -5,6 +5,7 @@ import Image from "next/image";
 import banner from "@/assets/banner.png";
 import Button from "./shared/Button";
 import Link from "next/link";
+import Review from "./Review";
 
 // Constants for animation and behavior control
 const titles = [
@@ -171,6 +172,7 @@ const Banner = () => {
           ></div>
         </div>
       </div>
+      <Review/>
     </section>
   );
 };

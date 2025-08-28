@@ -4,60 +4,60 @@ import Button from "../components/shared/Button";
 
 const packages = [
   {
-    name: "Beginner",
-    price: "BDT ১০,০০০/",
+    name: "Starter",
+    price: "BDT Start From 10,000/=",
     features: [
-      "ফ্রি .com/.net/.org ডোমেইন",
-      "৫GB SSD হোস্টিং",
-      "ব্যান্ডউইথ: ১০০GB",
-      "সার্ভার মেইনটেনেন্স: লাইফটাইম",
-      "সর্বোচ্চ ডাইনামিক পেজ: ৫",
-      "শপিং কার্ট, শিপমেন্ট অপশন",
-      "পেমেন্ট: মোবাইল ব্যাঙ্কিং, কার্ড",
-      "অর্ডার ম্যানেজমেন্ট অপশন",
-      "অটো জেনারেটেড বিল",
-      "মাল্টিপল ইমেজ অপশন: না",
-      "পোস্ট-সেলস সাপোর্ট: ১ মাস",
-      "ডেভেলপমেন্ট টাইমলাইন: ৫ দিন",
-      "রিনিউ: ৩,০০০ টাকা/বছর",
+      "Free .com/.net/.org domain (1 year)",
+      "5 GB SSD Hosting",
+      "Bandwidth: 100 GB / month",
+      "Lifetime server maintenance",
+      "Up to 5 dynamic pages",
+      "Basic shopping cart & checkout",
+      "Payments: Mobile Banking",
+      "Basic order management",
+      "Auto-generated invoices",
+      "Multiple image option: No",
+      "Post-sales support: 1 month",
+      "Development timeline: 5 days",
+      "Renewal: USD 30 / year",
     ],
   },
   {
-    name: "Buisness",
-    price: "BDT ২০,০০০/",
+    name: "Business",
+    price: "BDT Start From 20,000/=",
     features: [
-      "ফ্রি .com/.net/.org ডোমেইন",
-      "১৫GB SSD হোস্টিং",
-      "ব্যান্ডউইথ: ৫০০GB",
-      "সার্ভার মেইনটেনেন্স: লাইফটাইম",
-      "সর্বোচ্চ ডাইনামিক পেজ: ১০",
-      "শপিং কার্ট, শিপমেন্ট অপশন",
-      "পেমেন্ট: মোবাইল ব্যাঙ্কিং, কার্ড",
-      "অর্ডার ম্যানেজমেন্ট অপশন",
-      "অটো জেনারেটেড বিল",
-      "মাল্টিপল ইমেজ অপশন: হ্যাঁ",
-      "পোস্ট-সেলস সাপোর্ট: ২ মাস",
-      "ডেভেলপমেন্ট টাইমলাইন: ১০ দিন",
-      "রিনিউ: ৫,০০০ টাকা/বছর",
+      "Free .com/.net/.org domain (1 year)",
+      "15 GB SSD Hosting",
+      "Bandwidth: 500 GB / month",
+      "Lifetime server maintenance",
+      "Up to 10 dynamic pages",
+      "Shopping cart with shipping options",
+      "Payments: Mobile Banking, Card",
+      "Order management dashboard",
+      "Auto-generated invoices",
+      "Multiple image upload: Yes",
+      "Post-sales support: 2 months",
+      "Development timeline: 10 days",
+      "Renewal: USD 50 / year",
     ],
   },
   {
     name: "Corporate",
-    price: "BDT ৫০,০০০/",
+    price: "BDT Start From 40,000/=",
     features: [
-      "ফ্রি .com/.net/.org ডোমেইন",
-      "১০০GB SSD হোস্টিং",
-      "ব্যান্ডউইথ: আনলিমিটেড",
-      "সার্ভার মেইনটেনেন্স: লাইফটাইম",
-      "সর্বোচ্চ ডাইনামিক পেজ: ২০",
-      "শপিং কার্ট, শিপমেন্ট অপশন",
-      "পেমেন্ট: মোবাইল ব্যাঙ্কিং, কার্ড",
-      "অর্ডার ম্যানেজমেন্ট অপশন",
-      "অটো জেনারেটেড বিল",
-      "মাল্টিপল ইমেজ অপশন: হ্যাঁ",
-      "পোস্ট-সেলস সাপোর্ট: ৩ মাস",
-      "ডেভেলপমেন্ট টাইমলাইন: ১৫ দিন",
-      "রিনিউ: ১০,০০০ টাকা/বছর",
+      "Free .com/.net/.org domain (1 year)",
+      "100 GB SSD Hosting",
+      "Unlimited Bandwidth",
+      "Lifetime server maintenance",
+      "Up to 30 dynamic pages",
+      "Advanced e-commerce features",
+      "Payments: Mobile Banking, Card, PayPal",
+      "Order management & reports",
+      "Auto-generated invoices",
+      "Multiple image upload: Yes",
+      "Post-sales support: 3 months",
+      "Development timeline: 15 days",
+      "Renewal: USD 100 / year",
     ],
   },
 ];
@@ -66,9 +66,9 @@ export default function PricingPlans() {
   return (
     <div className="py-12">
       <h2 className="text-xl md:text-3xl font-bold text-center mb-10 md:mb-16 text-gray-500 drop-shadow-md">
-        প্যাকেজ ও মূল্য তালিকা
+        Pricing Plans
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
         {packages.map((pkg, idx) => (
           <Card
             key={idx}
@@ -81,7 +81,7 @@ export default function PricingPlans() {
               <CardTitle className="text-3xl font-bold relative z-10 text-center text-green-600">
                 {pkg.name}
               </CardTitle>
-              <p className="text-lg font-semibold text-center relative z-10">{pkg.price}</p>
+              <p className="text-md opacity-70 font-semibold text-center relative z-10">{pkg.price}</p>
             </CardHeader>
             <CardContent className="p-6 md:p-10 space-y-3 relative z-10">
               {pkg.features.map((feature, fIdx) => (
@@ -90,9 +90,7 @@ export default function PricingPlans() {
                   <span className="text-gray-300 text-sm font-bold flex-1">{feature}</span>
                 </div>
               ))}
-              <div className="flex justify-center mt-4">
-                <Button text="Go Portfolio"/>
-              </div>
+              
             </CardContent>
           </Card>
         ))}

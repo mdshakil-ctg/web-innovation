@@ -34,6 +34,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await loginUser(data.email, data.password);
+      
       openModal({
         title: "Welcome back!",
         message: "Successfully logged in.",
@@ -47,6 +48,7 @@ export default function LoginPage() {
         message: "Invalid email or password.",
         autoCloseTime: 4000,
       });
+      console.error(error);
     }
   };
 
@@ -62,6 +64,7 @@ export default function LoginPage() {
       router.push(redirectTo);
     } catch (error) {
       setLoading(false);
+      console.error(error)
     }
   };
 
@@ -77,20 +80,22 @@ export default function LoginPage() {
       router.push(redirectTo);
     } catch (error) {
       setLoading(false);
+      console.error(error);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="sm:py-10 py-24 lg:py-36 bg-white flex items-center justify-center overflow-hidden">
+      
+        <div className="absolute w-40 h-56 bg-blue-500 rounded-full top-1/3 left-1/2 opacity-20 blur-3xl z-10"></div>
+        <div className="absolute w-40 h-56 bg-blue-600 rounded-full top-2/3 right-1/2 opacity-20 blur-3xl z-10"></div>
       <form
-        className="relative z-10 bg-gray-900/90 backdrop-blur-md rounded-xl p-8 w-[90%] sm:w-[380px] flex flex-col gap-4 shadow-xl"
+        className="relative z-20 bg-glass backdrop-blur-md border-t rounded-xl p-8 w-[90%] sm:w-[380px] flex flex-col gap-4 shadow-2xl"
         onSubmit={handleSubmit(handleForm)}
       >
-        {/* Floating blurred circles */}
-        <div className="absolute w-56 h-56 bg-blue-600 rounded-full -top-32 -left-32 opacity-40 blur-3xl"></div>
-        <div className="absolute w-56 h-56 bg-orange-500 rounded-full -bottom-32 -right-32 opacity-40 blur-3xl"></div>
+        
 
-        <h2 className="text-2xl font-semibold text-white text-center mb-2">Login Here</h2>
+        <h2 className="text-2xl font-semibold text-black opacity-80 text-center mb-2">Login Here</h2>
 
         {/* Email */}
         <label className="text-gray-300 text-sm font-medium">Email or Phone</label>
@@ -125,7 +130,7 @@ export default function LoginPage() {
         {/* Login button */}
         <button
           disabled={loading || !isChecked}
-          className="bg-orange-600 hover:bg-orange-500 text-black font-bold py-3 rounded-md disabled:opacity-50 transition"
+          className="bg-orange-400 hover:bg-orange-500 text-black font-bold py-3 rounded-md disabled:opacity-50 transition"
         >
           {loading ? "Loading..." : "Login"}
         </button>

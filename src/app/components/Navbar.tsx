@@ -145,7 +145,7 @@ const Navbar = () => {
       {menuOpen && (
         <div
           ref={menuRef}
-          className="absolute top-16 left-0 w-full bg-gradient-to-r from-gray-800 to-purple-600 text-white shadow-lg md:hidden animate-slide-down"
+          className="absolute top-16 left-0 z-10 w-full bg-gradient-to-r from-gray-800 to-purple-600 text-white shadow-lg md:hidden animate-slide-down"
         >
           <ul className="flex flex-col gap-4 py-6 px-6 text-lg">
             <Link href="/" onClick={() => setMenuOpen(false)}>

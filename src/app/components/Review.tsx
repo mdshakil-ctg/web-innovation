@@ -18,7 +18,7 @@ const Review = () => {
               alt="Trustpilot"
               width={100}
               height={40}
-              className="object-contain"
+              className="w-full h-full object-contain"
             />
             <div className="flex items-center gap-1 text-yellow-400">
               <AiFillStar />

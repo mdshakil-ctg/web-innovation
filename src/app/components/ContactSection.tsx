@@ -32,7 +32,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contactme" className="bg-black text-white pt-16 px-6 md:px-16 max-w-7xl mx-auto">
+    <section id="contactme" className="bg-black text-white py-16 px-6 md:px-16 max-w-7xl mx-auto">
       <div className="grid md:grid-cols-2 gap-12">
         {/* Left */}
         <div>
