@@ -45,6 +45,12 @@ export default function MainServices() {
       description: "Web development is the process of creating websites and web applications for the internet or intranet.",
       points: ["Full-stack development", "Responsive web design"],
     },
+     {
+      icon: <FaBullhorn />,
+      title: "Digital Marketing",
+      description: "Digital marketing refers to the use of digital channels and technologies to promote products, services, or brands.",
+      points: ["Game development", "Responsive web design"],
+    },
     {
       icon: <FaCloud />,
       title: "Cloud Solutions",
@@ -70,12 +76,6 @@ export default function MainServices() {
       points: ["Full-stack development", "Responsive web design"],
     },
     {
-      icon: <FaBullhorn />,
-      title: "Digital Marketing",
-      description: "Digital marketing refers to the use of digital channels and technologies to promote products, services, or brands.",
-      points: ["Game development", "Responsive web design"],
-    },
-    {
       icon: <FaBrain />,
       title: "AI Solutions",
       description: "AI solutions leverage machine learning and artificial intelligence to automate processes and enhance decision-making.",
@@ -93,9 +93,12 @@ export default function MainServices() {
     <section className=" text-white py-24 px-4 cursor-pointer">
       <div className="max-w-7xl mx-auto">
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, idx) => (
-            <Link href="/websites" key={idx}><ServiceCard  {...service} /></Link>
-          ))}
+          {services.map((service, idx) => {
+            const href = service.title === "Digital Marketing" ? "/digital-marketing" : "/websites";
+            return (
+              <Link href={href} key={idx}><ServiceCard  {...service} /></Link>
+            );
+          })}
         </div>
       </div>
     </section>
